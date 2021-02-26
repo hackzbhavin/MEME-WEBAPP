@@ -1,2 +1,0 @@
-root
-Admin@28
