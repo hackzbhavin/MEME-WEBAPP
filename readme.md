@@ -10,3 +10,4 @@ Download all the files
 
 2. `python manage.py makemigrations memewebapp`
 3. To run server `python manage.py runserver`
+4. To create superuser `python manage.py createsuperuser`
