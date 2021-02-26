@@ -1,0 +1,128 @@
+
+h2{
+  margin-top: 20px;
+  font-family: 'Times New Roman', Times, serif;
+  text-shadow: 0px 1px rgba(90, 88, 88, 0.363);
+}
+
+.navbar-brand{
+    color:rgb(255, 255, 255);
+    font-size: 25px;
+    font-family: cursive;
+}
+
+.navbar-brand:hover{
+    color:rosybrown;
+}
+
+.nav-link{
+    margin-left: 17px;
+    color: snow;
+    font-size: 18px;
+    font-family: monospace;
+}
+.nav-link:hover{
+    color: rosybrown;
+}
+
+* {
+    margin: 0;
+  }
+  
+  body {
+    font-family: "Roboto", sans-serif;
+  }
+  
+  p {
+    margin: 24px 0;
+    line-height: 2;
+  }
+  
+  .wrapper {
+    padding: 32px;
+  }
+  
+  .cookie-container {
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    right: 0;
+    background: #2f3640;
+    color: #f5f6fa;
+    padding: 0 32px;
+    box-shadow: 0 -2px 16px rgba(47, 54, 64, 0.39);
+  
+    transition: 400ms;
+  }
+
+  .cookie-container2 {
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    right: 0;
+    background: #2f3640;
+    color: #f5f6fa;
+    padding: 0 32px;
+    box-shadow: 0 -2px 16px rgba(47, 54, 64, 0.39);
+  
+    transition: 400ms;
+  }
+  
+  .cookie-container.active {
+    bottom: 0;
+  }
+  .cookie-container2.active {
+    bottom: 0;
+  }
+  
+  .cookie-container a {
+    color: #f5f6fa;
+  }
+  
+  .cookie-btn {
+    background: #06a01a;
+    border: 0;
+    color: #f5f6fa;
+    padding: 10px 40px;
+    font-size: 18px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .cookie-btn:hover{
+      background-color: #03460c;
+      box-shadow: 0 2px black;
+  }
+
+  .cookie-btn2 {
+    margin-left: 20px;  
+    background: #a00606;
+    border: 0;
+    color: #f5f6fa;
+    padding: 10px 40px;
+    font-size: 18px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .cookie-btn2:hover{
+      background-color: #460303;
+      box-shadow: 0 2px black;
+  }
+
+  .cookie-container2{
+    -webkit-animation: cssAnimation 7s forwards; 
+    animation: cssAnimation 7s forwards;
+}
+@keyframes cssAnimation {
+    0%   {opacity: 1;}
+    90%  {opacity: 1;}
+    100% {opacity: 0;}
+}
+@-webkit-keyframes cssAnimation {
+    0%   {opacity: 1;}
+    90%  {opacity: 1;}
+    100% {opacity: 0;}
+} 

@@ -1,0 +1,144 @@
+{% load static %}
+
+<html>
+<head>
+    <title>Dashboard / Home</title>
+  
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <!-- My custom css it is stored in static directory -->
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <style>
+      #bigpic{
+        margin-top:50px;
+        display:none;}
+ </style>
+<head>
+ 
+<body>
+    <nav class="navbar navbar-expand-lg  bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <a class="navbar-brand" href="#">Meme Website</a>
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+       <a class="nav-link disabled bg-dark" style='color:white' href="#" tabindex="-1" aria-disabled="true">Welcome {{request.user.username}}</a>
+            <!--Logout Button the url 'logout' is coming from views.py in memewebapp directory-->>
+            <a class="btn btn-outline-danger my-2 my-sm-0" href="{% url 'logout' %}" type="">Logout</a>
+          </form>
+        </div>
+      </nav>
+<center>
+<h2>
+  Hello {{request.user.username}}
+</h2>
+
+
+
+
+<div id='bigpic'>
+  <h3> Below are the 5 Memes</h3>
+<!--Loop for images count till 5-->
+  {% for i in response.data.memes %}
+  {% if forloop.counter < 6 %} 
+  <img style="width:200px" id="" src='{{i.url}}' />
+
+  {% endif %}
+  {% endfor %}
+
+
+</div>
+</center>
+<!--Cookie Banner below -->
+<div class="cookie-container">
+    <p>
+      We use cookies in this website to give you the best experience on our
+      site and show you relevant ads. To find out more, read our
+      <a href="#">privacy policy</a> and <a href="#">cookie policy</a>.
+    </p>
+    
+      <button class="cookie-btn">Accept</button>
+      <button id='declinebtn' class="cookie-btn2" >Decline</button>
+</div>
+
+<div class="cookie-container2">
+  <p>
+  <center>
+    <!-- Used to display cookie information--> 
+    Cookie: 
+    <script>document.write(document.cookie);</script>
+  </center>
+  </p>
+</div>
+
+<script>
+  const cookieContainer = document.querySelector(".cookie-container");
+  const cookieContainer2 = document.querySelector(".cookie-container2");
+
+  const cookieButton = document.querySelector(".cookie-btn");
+
+cookieButton.addEventListener("click", () => {
+  cookieContainer.classList.remove("active");
+  localStorage.setItem("cookieBannerDisplayed", "true");
+  setTimeout(() => {
+  if (localStorage.getItem("cookieBannerDisplayed")) {
+    cookieContainer2.classList.add("active");
+    
+  }
+  
+}, 2000);
+});
+
+
+// if the Accept button is not selected loads the cookie-banner
+setTimeout(() => {
+  if (!localStorage.getItem("cookieBannerDisplayed")) {
+    cookieContainer.classList.add("active");
+    
+  }
+  
+}, 2000);
+
+// if the Accept button is  selected loads the cookie-banner2 to show stored information
+
+setTimeout(() => {
+  if (localStorage.getItem("cookieBannerDisplayed")) {
+    cookieContainer2.classList.add("active");
+    
+  }
+  
+}, 2000);
+
+$('.cookie-btn').on("click",function(e){
+  // to show image on web page click of button Accept Button 
+ $('#bigpic').show();
+ $('.cookie-container').hide();
+
+ // to show cookie details in banner2  
+ $('.cookie-container2').fadeIn(1000);
+ $('.cookie-container2').fadeOut(7000);
+
+});
+$('#bigpic').show();
+
+
+
+$('.cookie-btn2').on("click",function(e){
+$(".cookie-container").hide();
+
+//to show alert and redirect user to login page on clicking Decline Button
+alert("You have declied! Sorry  .");
+document.location.href = "{%  url 'logout' %}";
+});
+
+
+
+  </script>
+</body>
+</html>
