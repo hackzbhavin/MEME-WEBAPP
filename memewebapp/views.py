@@ -7,6 +7,7 @@ from django.contrib import messages
 ## Create your views here.
 from .forms import  CreateUserForm
 import json
+import requests
 
 
 def loginPage(request):
