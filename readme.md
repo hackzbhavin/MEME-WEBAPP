@@ -4,6 +4,9 @@ Download all the files
 
 - Requirements: Commandprompt/ Console/ Terminal , browser 
 
+> username: prohuman
+> password: Admin@28
+
 
 > Go inside the directory
 1. To migrate all settigs `python manage.py migrate` 
